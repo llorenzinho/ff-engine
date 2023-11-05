@@ -1,0 +1,15 @@
+# docker-compose file with minio and the application built from the Dockerfile
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+      - /home/lorenzo/.kube/config:/home/lorenzo/.kube/config
+    #   - ./config-files/dev.json:/app/config/config.json
+    # ports:
+    #   - 8080:3000
+    network_mode: host
+  
